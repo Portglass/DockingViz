@@ -4,7 +4,7 @@ from stmol import showmol
 import py3Dmol
 
 st.title("Pembrolizumab")
-st.session_state.PATH_PEMBROLIZUMAB = st.session_state.RESULT_FILE+"Pembrolizumab\\"
+st.session_state.PATH_PEMBROLIZUMAB = st.session_state.RESULT_FILE+"Pembrolizumab/"
 
 # 1A2C
 # Structure of thrombin inhibited by AERUGINOSIN298-A from a BLUE-GREEN ALGA

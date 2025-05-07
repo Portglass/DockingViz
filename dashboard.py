@@ -10,8 +10,8 @@ sys.path.append(dir.parent)
 print(dir.parent)
 print(os.listdir())
 
-st.session_state.RESULT_FILE = dir.parent+"\\Result_docking\\"
-st.session_state.DOCKING_FILE = dir.parent+"\\Fichier docking\\"
+st.session_state.RESULT_FILE = dir.parent+"/Result_docking/"
+st.session_state.DOCKING_FILE = dir.parent+"/Fichier docking/"
 
 st.title("Docking Analyzing")
 
