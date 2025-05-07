@@ -1,0 +1,46 @@
+{
+  "Number_ac": 447,
+  "Molecular_weight": 49415.6,
+  "Theorical_pI": 7.95,
+  "Ac_composition": {
+    "Ala": 17,
+    "Arg": 13,
+    "Asn": 20,
+    "Asp": 18,
+    "Cys": 11,
+    "Gln": 19,
+    "Glu": 24,
+    "Gly": 30,
+    "His": 7,
+    "Ile": 5,
+    "Leu": 30,
+    "Lys": 31,
+    "Met": 7,
+    "Phe": 18,
+    "Pro": 33,
+    "Ser": 51,
+    "Thr": 38,
+    "Trp": 8,
+    "Tyr": 21,
+    "Val": 46
+  },
+  "Total_nb_negatively_charged_residues_Asp_Glu": 42,
+  "Total_nb_positively_charged_residues_Arg_Lys": 44,
+  "Atom_composition":{
+    "Carbon": 2201,
+    "Hydrogen": 3384,
+    "Nitrogen": 578,
+    "Oxygen": 681,
+    "Sulfur": 18
+  },
+  "Total atom": 6862,
+  "Half_life_hours": 0.8,
+  "Instability_index": 44.89,
+  "Aliphatic_index": 64.18,
+  "Aromaticity_pourcent": 10.5,
+  "Grand_average_hydropathicity":-0.449,
+  "Hydrophobicity_plot":{
+    "Score_min": -2.744,
+    "Score_max": 2.189
+  }
+}

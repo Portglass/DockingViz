@@ -1,0 +1,17 @@
+Rank;rbn;Docking_method;Link
+1;RBN3143;Diffdock; https://www.ebi.ac.uk/pdbsum/ing4&code=121805
+2;RBN3143;Diffdock; https://www.ebi.ac.uk/pdbsum/inj5&code=134653
+3;RBN3143;Diffdock;https://www.ebi.ac.uk/pdbsum/inj7&code=141104
+4;RBN3143;Diffdock;https://www.ebi.ac.uk/pdbsum/inj8&code=144215
+1;RBN3143;Dynamic Bind; https://www.ebi.ac.uk/pdbsum/ink1&code=145324
+2;RBN3143;Dynamic Bind; https://www.ebi.ac.uk/pdbsum/ink3&code=142536
+3;RBN3143;Dynamic Bind; https://www.ebi.ac.uk/pdbsum/ink6&code=142952
+4;RBN3143;Dynamic Bind; https://www.ebi.ac.uk/pdbsum/inl6&code=150743
+1;RBN012759;Diffdock;https://www.ebi.ac.uk/pdbsum/inm3&code=162110
+2;RBN012759;Diffdock;https://www.ebi.ac.uk/pdbsum/inm8&code=165238
+3;RBN012759;Diffdock;https://www.ebi.ac.uk/pdbsum/inm9&code=161248
+4;RBN012759;Diffdock;https://www.ebi.ac.uk/pdbsum/inn7&code=170758
+1;RBN012759;Dynamic Bind;https://www.ebi.ac.uk/pdbsum/iph8&code=081551
+2;RBN012759;Dynamic Bind; https://www.ebi.ac.uk/pdbsum/ipi1&code=095000
+3;RBN012759;Dynamic Bind; https://www.ebi.ac.uk/pdbsum/ipw3&code=132607
+4;RBN012759;Dynamic Bind; https://www.ebi.ac.uk/pdbsum/ipw6&code=134319

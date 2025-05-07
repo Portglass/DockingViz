@@ -1,0 +1,11 @@
+# ===========================================================================
+command: prodigy_lig -c B X:UNK -i RBN3143_Diffdock_protein__rank1_Chain_ligand_X.pdb -v
+exit status: 0
+log:
+Job name	DGprediction (low refinement) (Kcal/mol)	CC	CN	CO	CX	NN	NO	NX	OO	OX	XX
+RBN3143_Diffdock_protein__rank1_Chain_ligand_X	-5.13	  57	  80	  64	  92	  18	  32	  25	  15	  26	   0
+# ===========================================================================
+command: prodigy_lig -c B X:UNK -i RBN3143_Diffdock_protein__rank1_Chain_ligand_X.pdb -v
+exit status: 127
+log:
+bash: prodigy_lig: command not found

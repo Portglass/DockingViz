@@ -1,0 +1,9 @@
+RBN3143;Rank1_diffdock;Rank2_diffdock;Rank3_diffdock;Rank4_diffdock;Rank1_mol5_DynamicBind;Rank1_mol6_DynamicBind;Rank1_mol8_DynamicBind;Rank1_mol10_DynamicBind
+Rank1_diffdock;;;;;;;;
+Rank2_diffdock;1.991;;;;;;;
+Rank3_diffdock;12.205;11.673;;;;;;
+Rank4_diffdock;1.135;1.991;12.18;;;;;
+Rank1_mol5_DynamicBind;9.161;8.283;10.619;9.308;;;;
+Rank2_mol6_DynamicBind;9.504;8.599;10.148;9.699;5.126;;;
+Rank3_mol8_DynamicBind;65.8;65.721;66.286;66.01;67.444;67.189;;
+Rank4_mol10_DynamicBind;12.296;12.559;5.735;13.277;10.716;9.152;67.415;

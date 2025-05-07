@@ -1,0 +1,6 @@
+# ===========================================================================
+command: prodigy_lig -c B X:UNK -i RBN3143_dynamic_bind_rank3_mol8.pdb -v
+exit status: 0
+log:
+Job name	DGprediction (low refinement) (Kcal/mol)	CC	CN	CO	CX	NN	NO	NX	OO	OX	XX
+RBN3143_dynamic_bind_rank3_mol8	-6.87	 911	 406	 440	  71	  39	  91	  18	  56	  21	   1
