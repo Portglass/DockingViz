@@ -4,10 +4,12 @@ import sys
 
 #Global Variable
 dir = path.Path(__file__).absolute()
-sys.path.append(dir.parent.parent)
+sys.path.append(dir.parent)
 
-st.session_state.RESULT_FILE = "Result_docking\\"
-st.session_state.DOCKING_FILE = "Fichier docking\\"
+print(dir.parent)
+
+st.session_state.RESULT_FILE = dir.parent+"\\Result_docking\\"
+st.session_state.DOCKING_FILE = dir.parent+"\\Fichier docking\\"
 
 st.title("Docking Analyzing")
 
