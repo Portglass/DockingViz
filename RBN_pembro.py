@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit import session_state, empty
 from streamlit_molstar import st_molstar
 import os
 import pandas as pd
