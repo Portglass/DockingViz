@@ -1,7 +1,6 @@
 import streamlit as st
 import path
 import sys
-import os
 
 #Global Variable
 dir = path.Path(__file__).absolute()
@@ -14,8 +13,8 @@ st.title("Docking Analyzing")
 
 pages = {
     "Interaction":[
-        st.Page("RBN_pembro.py", title="RBN - Pembro"),
-        st.Page("PD1_Pembrolizumab.py", title="PD1 - Complex")
+        st.Page("RBN_pembro_riab.py", title="RBN - Pembro RIAB"),
+        st.Page("PD1_Pembrolizumab.py", title="PD1 - Pembrolizumab")
     ],
     "Protein":[
         st.Page("Pembrolizumab.py", title="Pembrolizumab")

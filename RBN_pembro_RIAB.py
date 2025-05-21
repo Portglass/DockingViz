@@ -34,7 +34,6 @@ with st.expander("DockRmsd"):
     df_rmsd = pd.read_csv(st.session_state.result_dockrmsd + rbn + "/" + "Summary.csv", sep=";",header=0)
     st.write(df_rmsd)
     st.subheader("Moyenne du RMSD")
-    #st.write(df_rmsd.mean())
 
 #Prodigy
 st.subheader("Prodigy")

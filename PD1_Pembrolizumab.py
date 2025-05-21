@@ -3,6 +3,7 @@ from streamlit_molstar import st_molstar
 import os
 import xml.etree.ElementTree as ET
 import pandas as pd
+from additional_funtion import parse_struct
 
 st.title("PD1 - Pembrolizumab")
 
@@ -12,7 +13,8 @@ st.image("Result_docking/PD1 - Pembrolizumab/litterature/liaison.png")
 st.write("source : https://medium.com/@caseysteffen/comparative-analysis-pembrolizumab-and-pd-1-receptor-binding-properties-de368b55381f")
 
 #Global variable
-LIST_DOCKING = ["Haddock_wt_spe", "Cluspro_w_spe"]
+LIST_DOCKING = ["Haddock_wt_spe", "Cluspro_w_spe", "Cluspro_wt_spe"]
+LIST_INTERACTION = LIST_DOCKING + ["litterature"]
 LIST_CHAIN = ["Heavy chain","Light chain"]
 st.session_state.path_file = "Result_docking/PD1 - Pembrolizumab/"
 st.session_state.path_file_prodigy = "Result_docking/PD1 - Pembrolizumab/Prodigy_neurosnap.csv"
@@ -83,3 +85,76 @@ with st.expander("Affinity (Prodigy - Neurosnap)"):
     st.bar_chart(df_prodigy_chain, x="File", y="Percentage of charged NIS residues")
     st.bar_chart(df_prodigy_chain, x="File", y="Predicted binding affinity")
     st.bar_chart(df_prodigy_chain, x="File", y="Predicted dissociation constant")
+
+with st.expander("Comparateur d'interaction"):
+    st.write("Cette section permet de comparer les interactions entre les différents modèles générés")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader("Choix File 1")
+        docking_method_interaction_1 = st.selectbox("Which Docking method do you prefer ?", LIST_INTERACTION,key="select_docking_interaction_1")
+        path_directory_docking_interaction_1 = st.session_state.path_file + docking_method_interaction_1 + "/"
+        list_directory_interaction_1 = [f for f in os.listdir(path_directory_docking_interaction_1) if os.path.isdir(path_directory_docking_interaction_1 + f) and f.startswith("model")]
+        file_interaction_1 = st.selectbox("Which file do you want ?", list_directory_interaction_1, key="select_file_interaction_1")
+        path_file_interaction_1 = path_directory_docking_interaction_1 + file_interaction_1 + "/"
+    with col2:
+        st.subheader("Choix File 2")
+        docking_method_interaction_2 = st.selectbox("Which Docking method do you prefer ?", LIST_INTERACTION, key="select_docking_interaction_2")
+        path_directory_docking_interaction_2 = st.session_state.path_file + docking_method_interaction_2 + "/"
+        list_directory_interaction_2 = [f for f in os.listdir(path_directory_docking_interaction_2) if os.path.isdir(path_directory_docking_interaction_2 + f) and f.startswith("model")]
+        file_interaction_2 = st.selectbox("Which file do you want ?", list_directory_interaction_2, key="select_file_interaction_2")
+        path_file_interaction_2 = path_directory_docking_interaction_2 + file_interaction_2 + "/"
+
+    st.subheader("Result comparaison")
+    list_path_files_interaction = [path_file_interaction_1,path_file_interaction_2]
+    cols = st.columns(2)
+    list_df_interactions = []
+    for i in (0,1):
+        list_files_liaisons = [f for f in os.listdir(list_path_files_interaction[i]) if os.path.isfile(list_path_files_interaction[i] + f) and f.startswith("liaison")]
+        if not list_files_liaisons:
+            with cols[i]:
+                st.write("No file detected")
+        else:
+            data = []
+            for file_liaison in list_files_liaisons:
+                tree = ET.parse(list_path_files_interaction[i] + file_liaison)
+                root = tree.getroot()
+                type_interaction = file_liaison.split("_")
+                if type_interaction[-1] != "chain.xml":
+                    type_interaction = " ".join(type_interaction[1:-3])
+                else:
+                    type_interaction = " ".join(type_interaction[1:-2])
+                # Stockage des données
+                for struct in root.findall("STRUCTURE"):
+                    struct1 = parse_struct(struct.find("STRUCTURE1").text.strip())
+                    distance = struct.find("DISTANCE").text
+                    struct2 = parse_struct(struct.find("STRUCTURE2").text.strip())
+                    data.append({
+                        "type_interaction":type_interaction,
+                        "Chain_1":struct1[0],
+                        "Position_1": struct1[1],
+                        "AA_1": struct1[2],
+                        "Atome_1": struct1[3],
+                        "Distance (Å)": distance,
+                        "Chain_2": struct2[0],
+                        "Position_2": struct2[1],
+                        "AA_2": struct2[2],
+                        "Atome_2": struct2[3]
+                    })
+
+            # Affichage
+            list_df_interactions.append(pd.DataFrame(data))
+            with cols[i]:
+                st.dataframe(list_df_interactions[i])
+
+    # Affichage des interactions en commun
+    data_commun = []
+    for index, row in list_df_interactions[0].iterrows():
+        df_tempo = list_df_interactions[1].loc[(list_df_interactions[1]["Chain_1"] == row["Chain_1"]) & (list_df_interactions[1]["Position_1"] == row["Position_1"]) & (list_df_interactions[1]["Chain_2"] == row["Chain_2"]) & (list_df_interactions[1]["Position_2"] == row["Position_2"])]
+        if not df_tempo.empty:
+            data_commun.append(row)
+    st.subheader("Interaction en commun")
+    if not data_commun:
+        st.write("Aucune interaction en commun")
+    else:
+        df_commun = pd.DataFrame(data_commun)
+        st.dataframe(df_commun)
