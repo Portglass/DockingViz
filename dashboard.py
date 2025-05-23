@@ -14,7 +14,8 @@ st.title("Docking Analyzing")
 pages = {
     "Interaction":[
         st.Page("RBN_pembro_RIAB.py", title="RBN - Pembro RIAB"),
-        st.Page("PD1_Pembrolizumab.py", title="PD1 - Pembrolizumab")
+        st.Page("PD1_Pembrolizumab.py", title="PD1 - Pembrolizumab"),
+        st.Page("parp14_RBN.py.py", title="PARP14 - RBN")
     ],
     "Protein":[
         st.Page("Pembrolizumab.py", title="Pembrolizumab")
