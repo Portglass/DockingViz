@@ -6,3 +6,12 @@ import pandas as pd
 from additional_funtion import parse_struct
 
 st.title("Parp14 - RBN")
+
+with st.expander("RMSD"):
+    st.write("Not implemented")
+
+with st.expander("Affinity"):
+    st.write("Not implemented")
+
+with st.expander("Interactions"):
+    st.write("Not implemented")
