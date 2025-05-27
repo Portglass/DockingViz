@@ -22,5 +22,10 @@ pages = {
     ]
 }
 
+
 pg = st.navigation(pages)
 pg.run()
+
+st.sidebar.write("Produced by Martin Révillon (corp.revillon@hubebi.com)")
+st.sidebar.write("Encadrant : Samar ISSA, Faten CHACKCHOUK, Jad EID, Mano MATHEW")
+
